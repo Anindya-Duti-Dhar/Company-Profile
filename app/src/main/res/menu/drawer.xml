@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/my_id1">
+
+        <item
+            android:id="@+id/about"
+            android:icon="@drawable/item_icon"
+            android:title="About Us" />
+
+        </group>
+
+    <group
+        android:id="@+id/my_id4">
+
+        <item
+            android:id="@+id/website"
+            android:icon="@drawable/item_icon"
+            android:title="Our Website" />
+
+        </group>
+
+    <group
+        android:id="@+id/my_id5">
+
+        <item
+            android:id="@+id/playstore"
+            android:icon="@drawable/item_icon"
+            android:title="Our Play Store" />
+</group>
+
+    <group
+        android:id="@+id/my_id6">
+        <item
+            android:id="@+id/contact"
+            android:icon="@drawable/item_icon"
+            android:title="Contact Us" />
+
+        </group>
+
+</menu>
