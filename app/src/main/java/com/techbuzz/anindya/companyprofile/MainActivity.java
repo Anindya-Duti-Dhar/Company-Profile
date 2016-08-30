@@ -1,45 +1,36 @@
 package com.techbuzz.anindya.companyprofile;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.view.ContextThemeWrapper;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.SubMenu;
 import android.view.View;
 import android.widget.Toast;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+
 public class MainActivity extends AppCompatActivity {
 
     //Defining Variables
     private Toolbar toolbar;
-    private CardView cardView, cardView1;
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     MenuItem mPreviousMenuItem;
-    Fragment fragment;
-    FragmentTransaction fragmentTransaction;
     private AdView mAdMobAdView;
 
     @Override
@@ -47,11 +38,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Welcome Toast
+        Toast.makeText(getApplicationContext(),"Our Home Page",Toast.LENGTH_SHORT).show();
+
         // Initializing Toolbar and setting it as the actionbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ActionBar ab = getSupportActionBar();
+        ab.setTitle(R.string.app_name);
 
-        // Initializing Google AdMob
+            // Initializing Google AdMob
             mAdMobAdView = (AdView)findViewById(R.id.admob_adview);
             AdRequest adRequest = new AdRequest.Builder()
                     .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
@@ -89,8 +85,8 @@ public class MainActivity extends AppCompatActivity {
                 mPreviousMenuItem = menuItem;
 
 
-                //To Set Custom Title bar for each fragment of selected item
-                setTitle(menuItem.getTitle());
+               /* //To Set Custom Title bar for each fragment of selected item
+                setTitle(menuItem.getTitle());*/
 
 
                 //Closing drawer on item click
@@ -101,52 +97,30 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()){
 
 
-                    //Replacing the main content with about Which is our Inbox View;
+                    //Go about Page;
                     case R.id.about:
                         Toast.makeText(getApplicationContext(),"About Selected",Toast.LENGTH_SHORT).show();
-                        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        about fragment = new about();
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                         /* //for animation transaction
-                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_up, R.anim.slide_up_out);*/
-                        fragmentTransaction.replace(R.id.frame,fragment);
-                        fragmentTransaction.commit();
+                        startActivity(new Intent(MainActivity.this, about.class));
                         return true;
 
 
-                    //Replacing the main content with contact Which is our discover View;
+                    //Go contact Page;
                     case R.id.contact:
                         Toast.makeText(getApplicationContext(),"contact Selected",Toast.LENGTH_SHORT).show();
-                        contact fragment1 = new contact();
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                         /* //for animation transaction
-                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_up, R.anim.slide_up_out);*/
-                        fragmentTransaction.replace(R.id.frame,fragment1);
-                        fragmentTransaction.commit();
+                        startActivity(new Intent(MainActivity.this, contact.class));
                         return true;
 
 
-                    //Replacing the main content with playstore Which is our media View;
+                    // Go playstore page;
                     case R.id.playstore:
                         Toast.makeText(getApplicationContext(),"playstore Selected",Toast.LENGTH_SHORT).show();
-                        playstore fragment2 = new playstore();
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        /* //for animation transaction
-                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_up, R.anim.slide_up_out);*/
-                        fragmentTransaction.replace(R.id.frame,fragment2);
-                        fragmentTransaction.commit();
+                        startActivity(new Intent(MainActivity.this, playstore.class));
                         return true;
 
-
-                    //Replacing the main content with website Which is our Friends View;
+                    // Go website page;
                     case R.id.website:
                         Toast.makeText(getApplicationContext(),"website Selected",Toast.LENGTH_SHORT).show();
-                        website fragment3 = new website();
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        /* //for animation transaction
-                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_up, R.anim.slide_up_out);*/
-                        fragmentTransaction.replace(R.id.frame,fragment3);
-                        fragmentTransaction.commit();
+                        startActivity(new Intent(MainActivity.this, website.class));
                         return true;
 
                     default:

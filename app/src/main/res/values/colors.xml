@@ -13,4 +13,11 @@
     <color name="textColorPrimary">#FFFFFF</color>
     <color name="windowBackground">#FFFFFF</color>
     <color name="navigationBarColor">#000000</color>
+
+    <color name="reverie_primary">#EE1B2D</color>
+    <color name="reverie_accent">#F9A51B</color>
+    <color name="reverie_dark_primary">#18218A</color>
+
+    <color name="reverie_bg">#f7f7f7</color>
+
 </resources>
