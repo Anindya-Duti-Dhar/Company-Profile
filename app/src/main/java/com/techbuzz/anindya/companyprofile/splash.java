@@ -20,15 +20,15 @@ public class splash extends Activity {
 
         // METHOD Splash
 
-        /****** Create Thread that will sleep for 3 seconds *************/
+        /****** Create Thread that will sleep for 1 seconds *************/
         Thread background = new Thread() {
             public void run() {
 
                 try {
-                    // Thread will sleep for 3 seconds
-                    sleep(3*1000);
+                    // Thread will sleep for 1 seconds
+                    sleep(1*1000);
 
-                    // After 3 seconds redirect to another intent
+                    // After 1 seconds redirect to another intent
                     Intent i=new Intent(getBaseContext(),MainActivity.class);
                     startActivity(i);
 

@@ -1,36 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="172dp"
-    android:background="@drawable/navbg"
-    android:orientation="vertical"
-    >
-   <!-- <de.hdodenhof.circleimageview.CircleImageView
+    android:background="@drawable/overlay_top">
+
+    <de.hdodenhof.circleimageview.CircleImageView
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/profile_image"
-        android:layout_width="75dp"
-    android:layout_height="75dp"
-    android:src="@drawable/me"
-    app:border_color="#FF000000"
-        android:layout_marginLeft="27dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginStart="24dp" />-->
+    android:id="@+id/company_profile_image"
+        android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:src="@drawable/reverie_logo"
+    app:border_color="@color/list_background"
+        app:border_width="0dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sea Beaches Of Bangladesh"
-        android:layout_gravity="center_horizontal"
-        android:paddingLeft="10.0sp"
-        android:paddingTop="3dp"
-        android:id="@+id/username"
-        android:textSize="14sp"
+        android:text="Reverie Group"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/company_name"
+        android:layout_below="@+id/company_profile_image"
+        android:textSize="20sp"
         android:textStyle="normal"
-        android:layout_marginTop="130dp"
-        android:textColor="#FFF"
-        android:paddingBottom="12.0sp"/>
+        android:layout_marginTop="5dp"
+        android:textColor="@android:color/white"
+        android:paddingBottom="10dp"/>
 
-</LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:elevation="5dp"
+        android:background="@color/common_action_bar_splitter"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
 
 
 

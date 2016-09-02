@@ -17,7 +17,27 @@
     <color name="reverie_primary">#EE1B2D</color>
     <color name="reverie_accent">#F9A51B</color>
     <color name="reverie_dark_primary">#18218A</color>
-
     <color name="reverie_bg">#f7f7f7</color>
+
+    <color name="off_white">#F5F5F5</color>
+    <color name="white_text_color">#FFFFFF</color>
+    <color name="Black">#000000</color>
+    <color name="android_blue">#46AEE0</color>
+    <color name="ash_color">#acacac</color>
+    <color name="ash_color_light">#E2E2E2</color>
+    <color name="White">#FFFFFF</color>
+    <color name="app_red">#FF0000</color>
+    <color name="color_primary_green"> #338C6A</color>
+    <color name="color_primary_green_dark">#388e3c</color>
+    <color name="ripple_green">#26a69a</color>
+    <color name="fab_color_ripple">#7b1fa2</color>
+    <color name="status_bar">#e57373</color>
+    <color name="blue">#5B76B3</color>
+    <color name="marun">#DC4837</color>
+    <color name="magenta_color">#EB54AA</color>
+    <color name="fab_color_mesage">#26c6DA</color>
+    <color name="ripple_blue">#1a237e</color>
+
+    <color name="card_bg">#acacac</color>
 
 </resources>

@@ -12,11 +12,11 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/reverie_primary"
-        android:minHeight="?attr/actionBarSize"
         android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/abc_action_bar_default_height_material"
+        android:background="@color/reverie_primary"
+        android:elevation="5dp"
         app:theme="@style/Toolbar"
         android:titleTextColor="@color/reverie_accent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>

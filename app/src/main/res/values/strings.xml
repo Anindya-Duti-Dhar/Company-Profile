@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Company Profile</string>
+    <string name="app_name">Reverie Group</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Rate Us</string>
     <string name="navigation_item_1">Home</string>
@@ -18,6 +18,8 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <string name="personal_details">Personal Details</string>
+
     <string name="banner_footer">ca-app-pub-3952381686536210/1901268689</string>
 
 
@@ -25,6 +27,8 @@
     <string name="contact_title">Contact Us</string>
     <string name="playstore_title">Our Play Store</string>
     <string name="website_title">Our Website</string>
+
+    <string name="address"> House: 19 (6 th Floor)\nRoad: 10, Nikunja-2 \nDhaka-1229</string>
 
 
 </resources>
