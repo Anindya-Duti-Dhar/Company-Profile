@@ -1,16 +1,77 @@
 {
   "model": [
     {
-      "Name": "Aamir Khan",
-      "Desc1": "first long description"
+      "name": "Aamir Khan",
+      "born" : "March 14, 1965",
+      "picture" : "Aamir_Khan.jpg",
+      "id": "aamirkhan",
+      "desc1" : "It is a long established fact that a reader will be distracted 1",
+      "desc2" : "It is a long established fact that a reader will be distracted 2"
     },
     {
-      "Name": "Salman Khan",
-      "Desc1": "second long description"
+      "name": "Salman Khan",
+      "born": "December 27, 1965",
+      "picture": "Salman_Khan.jpg",
+      "id": "salmankhan",
+      "desc1": "It is a long established fact that a reader will be distracted 1",
+      "desc2": "It is a long established fact that a reader will be distracted 2"
     },
     {
-      "Name": "Shahrukh Khan",
-      "Desc1": "third long description"
+      "name": "Shahrukh Khan",
+      "born": "November 2, 1965",
+      "picture": "Shahrukh_Khan.jpg",
+      "id": "shahrukhkhan",
+      "desc1": "It is a long established fact that a reader will be distracted 1",
+      "desc2": "It is a long established fact that a reader will be distracted 2"
+    },
+
+    {
+      "name": "Aamir Khan",
+      "born" : "March 14, 1965",
+      "picture" : "Aamir_Khan.jpg",
+      "id": "aamirkhan",
+      "desc1" : "It is a long established fact that a reader will be distracted 1",
+      "desc2" : "It is a long established fact that a reader will be distracted 2"
+    },
+    {
+      "name": "Salman Khan",
+      "born": "December 27, 1965",
+      "picture": "Salman_Khan.jpg",
+      "id": "salmankhan",
+      "desc1": "It is a long established fact that a reader will be distracted 1",
+      "desc2": "It is a long established fact that a reader will be distracted 2"
+    },
+    {
+      "name": "Shahrukh Khan",
+      "born": "November 2, 1965",
+      "picture": "Shahrukh_Khan.jpg",
+      "id": "shahrukhkhan",
+      "desc1": "It is a long established fact that a reader will be distracted 1",
+      "desc2": "It is a long established fact that a reader will be distracted 2"
+    },
+    {
+      "name": "Aamir Khan",
+      "born" : "March 14, 1965",
+      "picture" : "Aamir_Khan.jpg",
+      "id": "aamirkhan",
+      "desc1" : "It is a long established fact that a reader will be distracted 1",
+      "desc2" : "It is a long established fact that a reader will be distracted 2"
+    },
+    {
+      "name": "Salman Khan",
+      "born": "December 27, 1965",
+      "picture": "Salman_Khan.jpg",
+      "id": "salmankhan",
+      "desc1": "It is a long established fact that a reader will be distracted 1",
+      "desc2": "It is a long established fact that a reader will be distracted 2"
+    },
+    {
+      "name": "Shahrukh Khan",
+      "born": "November 2, 1965",
+      "picture": "Shahrukh_Khan.jpg",
+      "id": "shahrukhkhan",
+      "desc1": "It is a long established fact that a reader will be distracted 1",
+      "desc2": "It is a long established fact that a reader will be distracted 2"
     }
   ]
 }

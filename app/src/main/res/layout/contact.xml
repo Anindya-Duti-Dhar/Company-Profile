@@ -27,13 +27,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18dp"
-        android:textColor="@color/navigationBarColor"
+        android:textColor="@color/reverie_primary"
         android:layout_marginTop="12dp"
+        android:typeface="serif"
         android:layout_centerHorizontal="true"
-        android:text="Contact Details"/>
+        android:text="Send Your Message"/>
 
 
-  <!--  <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,29 +56,89 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:weightSum="3"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".8"
-                        android:textSize="16sp"
-                        android:text="Address :"/>
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/off_white"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2.2"
-                        android:textSize="16sp"
-                        android:text="@string/address"/>
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
+                        <EditText
+                            android:id="@+id/etName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/status_bar"
+                            android:hint="Name"
+                            android:inputType="textPersonName"  />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:backgroundTint="@color/status_bar"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etPhone"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/status_bar"
+                        android:hint="Phone"
+                        android:inputType="phone" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_message"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/etMessage"
+                        android:layout_width="fill_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:backgroundTint="@color/status_bar"
+                        android:gravity="top"
+                        android:hint="Your Message"
+                        android:fitsSystemWindows="true"
+                        android:breakStrategy="balanced"
+                        android:inputType="textMultiLine"
+                        android:singleLine="false"
+                        android:padding="5dp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/btnSend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@color/ripple_green"
+                        android:elevation="4dp"
+                        android:paddingLeft="70dp"
+                        android:paddingRight="70dp"
+                        android:text="Submit"
+                        android:textColor="@color/white_text_color" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -85,163 +146,6 @@
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
-
-
-    <TextView
-        android:id="@+id/webView_header2"
-        android:layout_below="@+id/view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18dp"
-        android:textColor="@color/navigationBarColor"
-        android:layout_marginTop="8dp"
-        android:layout_centerHorizontal="true"
-        android:text="Your Message"/>
-
-    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/webView_header2"
-        android:layout_margin="5dp"
-        android:orientation="vertical"
-        card_view:cardCornerRadius="5dp"
-        card_view:cardUseCompatPadding="true"
-        card_view:cardElevation="3dp"
-        android:id="@+id/view2">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?android:selectableItemBackground">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:weightSum="3"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".8"
-                        android:textSize="16sp"
-                        android:text="Name :"/>
-                    <EditText
-                        android:id="@+id/etName"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:paddingRight="5dp"
-                        android:layout_weight="2.2"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:weightSum="3"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".8"
-                        android:textSize="16sp"
-                        android:text="Email :"/>
-                    <EditText
-                        android:id="@+id/etEmail"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:paddingRight="5dp"
-                        android:layout_weight="2.2"/>
-
-                </LinearLayout>
-
-               &lt;!&ndash; <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:weightSum="3"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".8"
-                        android:textSize="16sp"
-                        android:text="Subject :"/>
-                    <EditText
-                        android:id="@+id/etSubject"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:paddingRight="5dp"
-                        android:layout_weight="2.2"/>
-                </LinearLayout>&ndash;&gt;
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:weightSum="3"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".8"
-                        android:textSize="16sp"
-                        android:text="Message :"/>
-
-                    <EditText
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:inputType="textMultiLine"
-                        android:ems="10"
-                        android:id="@+id/etMessage"
-                        android:paddingRight="5dp"
-                        android:layout_weight="2.2"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="130dp"
-                    android:layout_height="40dp"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center_horizontal">
-                    <Button
-                        android:id="@+id/btnsend"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Send"
-                        android:textSize="16dp"
-                        android:textAllCaps="false"
-                        android:textColor="#ffffff"
-                        android:background="@drawable/ripple_fb"/>
-
-                </LinearLayout>
-            </LinearLayout>
-
-        </RelativeLayout>
-
-    </android.support.v7.widget.CardView>-->
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/admob_adview"

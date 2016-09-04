@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +23,8 @@ import com.google.android.gms.ads.AdView;
 public class contact extends AppCompatActivity {
 
     private AdView mAdMobAdView;
+    private EditText etName, etEmail, etPhone, etMessage;
+    private TextInputLayout inputLayoutname, inputLayoutemail, inputLayoutphone,inputLayoutmessage ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +50,16 @@ public class contact extends AppCompatActivity {
                 .build();
         mAdMobAdView.loadAd(adRequest);
 
-     /*  Button btnsend = (Button) findViewById(R.id.btnsend);
+       Button btnSend = (Button) findViewById(R.id.btnSend);
        EditText etName = (EditText)findViewById(R.id.etName);
         EditText etEmail = (EditText)findViewById(R.id.etEmail);
-        EditText etSubject = (EditText)findViewById(R.id.etSubject);
-        EditText etMessage = (EditText)findViewById(R.id.etMessage);*/
+        EditText etSubject = (EditText)findViewById(R.id.etPhone);
+        EditText etMessage = (EditText)findViewById(R.id.etMessage);
+
+        inputLayoutname= (TextInputLayout) findViewById(R.id.input_layout_name);
+        inputLayoutemail= (TextInputLayout) findViewById(R.id.input_layout_email);
+        inputLayoutphone= (TextInputLayout) findViewById(R.id.input_layout_phone);
+        inputLayoutmessage= (TextInputLayout) findViewById(R.id.input_layout_message);
 
     }
 

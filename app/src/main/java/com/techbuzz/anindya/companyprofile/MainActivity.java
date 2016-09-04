@@ -1,6 +1,5 @@
 package com.techbuzz.anindya.companyprofile;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,37 +8,31 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.NavigationView;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,16 +43,16 @@ public class MainActivity extends AppCompatActivity {
     MenuItem mPreviousMenuItem;
     private AdView mAdMobAdView;
 
-/*    //json variable
-    JSONObject jsonobject;
-    JSONArray jsonarray;
-    ListView listview;
-    ProgressDialog mProgressDialog;
-    ListViewAdapter adapter;
-    ArrayList<HashMap<String, String>> arraylist;
-    static String NAME = "Name";
-    static String DESCRIPTION1 = "Desc1";*/
+    //json variable
+    TextView mCategory, mDesc1, mDesc2, mBorn, mId, mPicture, mEmptyTextView;
+    ImageView mprofileImage;
+    ProgressBar mProgressBar;
+    ListView list;
+    String friendsJSON;
+    ArrayList<Category> arraylist;
+    JsonParsingHelper parser = new JsonParsingHelper();
 
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,14 +79,56 @@ public class MainActivity extends AppCompatActivity {
         // Initializing Internet Check
         if (hasConnection(MainActivity.this)){
             //call methods
-            //json call
-            /*new DownloadJSON().execute();
-*/
-
         }
         else{
             showNetDisabledAlertToUser(MainActivity.this);
         }
+
+        //JSON call
+        list = (ListView) findViewById(android.R.id.list);
+        mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
+        mEmptyTextView = (TextView) findViewById(R.id.empty);
+
+        mEmptyTextView.setVisibility(View.GONE);
+        mProgressBar.setVisibility(View.GONE);
+
+        //read json file from assets folder
+        friendsJSON = Utils.jsonToStringFromAssetFolder("khans.json",
+                getApplicationContext());
+
+        //call json method
+        new GetList().execute();
+
+        //add listener to each item on listView
+        list.setOnItemClickListener(new OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+                                    long arg3) {
+                // TODO Auto-generated method stub
+
+                Toast.makeText(getApplicationContext(),
+                        "selected " + arraylist.get(arg2).getName(), Toast.LENGTH_SHORT)
+                        .show();
+                //Passing data via Intent to the next Page
+                Intent intent = new Intent(MainActivity.this, SingleItemView.class);
+                // Pass all data name
+                intent.putExtra("name", arraylist.get(arg2).getName());
+                /*// Pass all data born
+                intent.putExtra("born", arraylist.get(arg2).getBorn());*/
+                // Pass all data id
+                intent.putExtra("id", arraylist.get(arg2).getId());
+                // Pass all data description1
+                intent.putExtra("desc1", arraylist.get(arg2).getDesc1());
+                // Pass all data description2
+                intent.putExtra("desc2", arraylist.get(arg2).getDesc2());
+
+
+                // Start SingleItemView Class
+                startActivity(intent);
+            }
+
+        });
 
         //Initializing NavigationView
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
@@ -191,80 +226,6 @@ public class MainActivity extends AppCompatActivity {
         actionBarDrawerToggle.syncState();
     }
 
-
-   // LoadJSON AsyncTask
-   // DownloadJSON AsyncTask
- /*  private class DownloadJSON extends AsyncTask<Void, Void, Void> {
-
-       @Override
-       protected void onPreExecute() {
-           super.onPreExecute();
-           // Create a progressdialog
-           mProgressDialog = new ProgressDialog(MainActivity.this);
-           // Set progressdialog title
-           mProgressDialog.setTitle("Data Fetching");
-           // Set progressdialog message
-           mProgressDialog.setMessage("Loading...");
-           mProgressDialog.setIndeterminate(false);
-           // Show progressdialog
-           mProgressDialog.show();
-       }
-
-       @Override
-       protected Void doInBackground(Void... params) {
-           // Create an array
-
-           String json = null;
-           try {
-               InputStream is = getAssets().open("khans.json");
-               int size = is.available();
-               byte[] buffer = new byte[size];
-               is.read(buffer);
-               is.close();
-               json = new String(buffer, "UTF-8");
-           } catch (IOException ex) {
-               ex.printStackTrace();
-               return null;
-           }
-
-
-           try {
-               // Locate the array name in JSON
-               JSONObject obj = new JSONObject(json);
-               JSONArray m_jArry = obj.getJSONArray("model");
-
-               for (int i = 0; i < jsonarray.length(); i++) {
-                   HashMap<String, String> map = new HashMap<String, String>();
-                   jsonobject = jsonarray.getJSONObject(i);
-                   // Retrive JSON Objects
-                   map.put("Name", jsonobject.getString("Name"));
-                   map.put("Desc1", jsonobject.getString("Desc1"));
-                   // Set the JSON Objects into the array
-                   arraylist.add(map);
-               }
-           } catch (JSONException e) {
-               Log.e("Error", e.getMessage());
-               e.printStackTrace();
-           }
-           return null;
-
-       }
-
-       @Override
-       protected void onPostExecute(Void args) {
-           // Locate the listview in listview_main.xml
-           listview = (ListView) findViewById(R.id.listview);
-           // Pass the results into ListViewAdapter.java
-           adapter = new ListViewAdapter(MainActivity.this, arraylist);
-           // Set the adapter to the ListView
-           listview.setAdapter(adapter);
-           // Close the progressdialog
-           mProgressDialog.dismiss();
-       }
-   }*/
-
-
-
     // Internet check method
     public boolean hasConnection(Context context){
         ConnectivityManager cm=(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -346,5 +307,91 @@ public class MainActivity extends AppCompatActivity {
                 });
         AlertDialog alert = alertDialogBuilder.create();
         alert.show();
+    }
+
+
+    //Json calling Method
+    private class GetList extends AsyncTask<Void, Void, Void> {
+
+        protected void onPreExecute() {
+            mProgressBar.setVisibility(View.VISIBLE);
+        }
+
+        protected Void doInBackground(Void... unused) {
+
+            try {
+                arraylist = parser.getCities(friendsJSON);
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
+            return null;
+        }
+
+        protected void onPostExecute(Void unused) {
+
+            if (arraylist != null && arraylist.size() - 1 != 0) {
+                list.setAdapter(new MyAdapter());
+            } else {
+                mEmptyTextView.setVisibility(View.VISIBLE);
+                mEmptyTextView.setText("No data found..!!");
+            }
+            mProgressBar.setVisibility(View.GONE);
+        }
+
+
+        class MyAdapter extends BaseAdapter {
+
+            public int getCount() {
+                // TODO Auto-generated method stub
+                return arraylist.size();
+            }
+
+            public Object getItem(int arg0) {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            public long getItemId(int arg0) {
+                // TODO Auto-generated method stub
+                return 0;
+            }
+
+
+            //Inflate the listView
+            public View getView(final int position, View v1, ViewGroup arg2) {
+                // TODO Auto-generated method stub
+                View v = null;
+
+                LayoutInflater l = (LayoutInflater) getApplicationContext()
+                        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+                v = l.inflate(R.layout.list_item, arg2, false);
+
+                /*// list-optimisation
+                View rowview = v;
+                if (rowview == null) {
+                    LayoutInflater linf = (LayoutInflater) getApplicationContext()
+                            .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    rowview = linf.inflate(R.layout.list_item, null);
+                }*/
+
+                mCategory = (TextView) v.findViewById(R.id.user_name);
+               /* mBorn = (TextView) v.findViewById(R.id.user_born);*/
+                mId = (TextView) v.findViewById(R.id.user_id);
+                mDesc1 = (TextView) v.findViewById(R.id.user_desc1);
+                mDesc2 = (TextView) v.findViewById(R.id.user_desc2);
+                /*mprofileImage = (ImageView) v.findViewById(R.id.profile_image);*/
+
+                mCategory.setText(arraylist.get(position).getName());
+                /*mBorn.setText(arraylist.get(position).getBorn());*/
+                mId.setText(arraylist.get(position).getId());
+                mDesc1.setText(arraylist.get(position).getDesc1());
+                mDesc2.setText(arraylist.get(position).getDesc2());
+
+                return v;
+
+            }
+        }
+
     }
 }

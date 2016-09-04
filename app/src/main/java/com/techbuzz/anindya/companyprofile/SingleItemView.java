@@ -1,4 +1,3 @@
-/*
 package com.techbuzz.anindya.companyprofile;
 
 import android.content.Context;
@@ -16,10 +15,9 @@ import android.widget.TextView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-*/
 /**
  * Created by Angry_Birds on 9/2/2016.
- *//*
+ */
 
 public class SingleItemView extends AppCompatActivity {
 
@@ -27,6 +25,9 @@ public class SingleItemView extends AppCompatActivity {
 
     String Name;
     String Desc1;
+    String Id;
+    String Born;
+    String Desc2;
 
 
     @Override
@@ -48,29 +49,39 @@ public class SingleItemView extends AppCompatActivity {
         // Initializing Google AdMob
         mAdMobAdView = (AdView)findViewById(R.id.admob_adview);
         AdRequest adRequest = new AdRequest.Builder()
-                */
-/*.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("1797D2757F5140AA8F98809B458DB26F")// real device id here*//*
+                /*.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("1797D2757F5140AA8F98809B458DB26F")// real device id here*/
 
                 .build();
         mAdMobAdView.loadAd(adRequest);
 
-        Intent i = getIntent();
+        Intent intent = getIntent();
         // Get the result of name
-        Name = i.getStringExtra("Name");
-  /*      // Get the result of desc1
-        Desc1 = i.getStringExtra("Desc1");
-
+        Name = intent.getStringExtra("name");
+        /*// Get the result of born
+        Born = intent.getStringExtra("born");*/
+        // Get the result of id
+        Id = intent.getStringExtra("id");
+        // Get the result of desc1
+        Desc1 = intent.getStringExtra("desc1");
+        // Get the result of desc2
+        Desc2 = intent.getStringExtra("desc2");
 
         // Locate the TextViews in singleitemview.xml
         TextView txtName = (TextView) findViewById(R.id.user_name);
+        /*TextView txtBorn = (TextView) findViewById(R.id.user_born);*/
+        TextView txtId = (TextView) findViewById(R.id.user_id);
         TextView txtDesc1 = (TextView) findViewById(R.id.user_desc1);
+        TextView txtDesc2 = (TextView) findViewById(R.id.user_desc2);
 
         // Set results to the TextViews
         txtName.setText(Name);
-        txtDesc1.setText(Desc1);*/
+        /*txtBorn.setText(Born);*/
+        txtId.setText(Id);
+        txtDesc1.setText(Desc1);
+        txtDesc2.setText(Desc2);
 
-   /* }
+    }
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -126,5 +137,4 @@ public class SingleItemView extends AppCompatActivity {
         alert.show();
     }
 
-}*//*
-*/
+}
