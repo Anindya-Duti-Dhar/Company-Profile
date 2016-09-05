@@ -3,75 +3,75 @@
     {
       "name": "Aamir Khan",
       "born" : "March 14, 1965",
-      "picture" : "Aamir_Khan.jpg",
+      "picture" : "amir_khan.jpg",
       "id": "aamirkhan",
-      "desc1" : "It is a long established fact that a reader will be distracted 1",
-      "desc2" : "It is a long established fact that a reader will be distracted 2"
+      "desc1": "Here is the Title",
+      "desc2": "It is a long established fact that a reader will be distracted"
     },
     {
       "name": "Salman Khan",
       "born": "December 27, 1965",
-      "picture": "Salman_Khan.jpg",
+      "picture": "salman_khan.jpg",
       "id": "salmankhan",
-      "desc1": "It is a long established fact that a reader will be distracted 1",
-      "desc2": "It is a long established fact that a reader will be distracted 2"
+      "desc1": "Here is the Title",
+      "desc2": "It is a long established fact that a reader will be distracted"
     },
     {
       "name": "Shahrukh Khan",
       "born": "November 2, 1965",
-      "picture": "Shahrukh_Khan.jpg",
+      "picture": "shahrukh_khan.jpg",
       "id": "shahrukhkhan",
-      "desc1": "It is a long established fact that a reader will be distracted 1",
-      "desc2": "It is a long established fact that a reader will be distracted 2"
+      "desc1": "Here is the Title",
+      "desc2": "It is a long established fact that a reader will be distracted"
     },
 
     {
       "name": "Aamir Khan",
       "born" : "March 14, 1965",
-      "picture" : "Aamir_Khan.jpg",
+      "picture" : "amir_khan.jpg",
       "id": "aamirkhan",
-      "desc1" : "It is a long established fact that a reader will be distracted 1",
-      "desc2" : "It is a long established fact that a reader will be distracted 2"
+      "desc1": "Here is the Title",
+      "desc2": "It is a long established fact that a reader will be distracted"
     },
     {
       "name": "Salman Khan",
       "born": "December 27, 1965",
-      "picture": "Salman_Khan.jpg",
+      "picture": "salman_khan.jpg",
       "id": "salmankhan",
-      "desc1": "It is a long established fact that a reader will be distracted 1",
-      "desc2": "It is a long established fact that a reader will be distracted 2"
+      "desc1": "Here is the Title",
+      "desc2": "It is a long established fact that a reader will be distracted"
     },
     {
       "name": "Shahrukh Khan",
       "born": "November 2, 1965",
-      "picture": "Shahrukh_Khan.jpg",
+      "picture": "shahrukh_khan.jpg",
       "id": "shahrukhkhan",
-      "desc1": "It is a long established fact that a reader will be distracted 1",
-      "desc2": "It is a long established fact that a reader will be distracted 2"
+      "desc1": "Here is the Title",
+      "desc2": "It is a long established fact that a reader will be distracted"
     },
     {
       "name": "Aamir Khan",
       "born" : "March 14, 1965",
-      "picture" : "Aamir_Khan.jpg",
+      "picture" : "amir_khan.jpg",
       "id": "aamirkhan",
-      "desc1" : "It is a long established fact that a reader will be distracted 1",
-      "desc2" : "It is a long established fact that a reader will be distracted 2"
+      "desc1": "Here is the Title",
+      "desc2": "It is a long established fact that a reader will be distracted"
     },
     {
       "name": "Salman Khan",
       "born": "December 27, 1965",
-      "picture": "Salman_Khan.jpg",
+      "picture": "salman_khan.jpg",
       "id": "salmankhan",
-      "desc1": "It is a long established fact that a reader will be distracted 1",
-      "desc2": "It is a long established fact that a reader will be distracted 2"
+      "desc1": "Here is the Title",
+      "desc2": "It is a long established fact that a reader will be distracted"
     },
     {
       "name": "Shahrukh Khan",
       "born": "November 2, 1965",
-      "picture": "Shahrukh_Khan.jpg",
+      "picture": "shahrukh_khan.jpg",
       "id": "shahrukhkhan",
-      "desc1": "It is a long established fact that a reader will be distracted 1",
-      "desc2": "It is a long established fact that a reader will be distracted 2"
+      "desc1": "Here is the Title",
+      "desc2": "It is a long established fact that a reader will be distracted"
     }
   ]
 }

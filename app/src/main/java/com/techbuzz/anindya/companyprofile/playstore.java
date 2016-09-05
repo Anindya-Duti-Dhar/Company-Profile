@@ -138,7 +138,7 @@ public class playstore extends AppCompatActivity {
 
         alertDialogBuilder.setNegativeButton(" Not Now ", new DialogInterface.OnClickListener(){
             public void onClick(DialogInterface dialog, int id){
-                startActivity(new Intent(playstore.this, MainActivity.class));
+                onBackPressed();
             }
         });
         AlertDialog alert = alertDialogBuilder.create();

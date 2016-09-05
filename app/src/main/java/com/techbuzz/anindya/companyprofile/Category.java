@@ -6,9 +6,8 @@ import android.os.Parcelable;
 
 public class Category implements Parcelable {
 
-    String name, desc1, desc2, id;
-   /* String born, picture;
-    Drawable res;*/
+    String name, desc1, desc2, id, born, picture;
+    Integer res;
 
     public String getName() {
         return name;
@@ -42,9 +41,7 @@ public class Category implements Parcelable {
         this.desc2 = desc2;
     }
 
-
-/*
-public void setBorn(String Born) {
+    public void setBorn(String born) {
         this.born = born;
     }
 
@@ -60,14 +57,13 @@ public void setBorn(String Born) {
         this.picture = picture;
     }
 
-    public Drawable getRes() {
+    public Integer getRes() {
         return res;
     }
 
-    public void setRes(Drawable res) {
+    public void setRes(Integer res) {
         this.res = res;
-    }*/
-
+    }
 
 
     @Override

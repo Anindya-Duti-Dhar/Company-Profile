@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -28,7 +29,7 @@ public class SingleItemView extends AppCompatActivity {
     String Id;
     String Born;
     String Desc2;
-
+    String Picture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,28 +59,36 @@ public class SingleItemView extends AppCompatActivity {
         Intent intent = getIntent();
         // Get the result of name
         Name = intent.getStringExtra("name");
-        /*// Get the result of born
-        Born = intent.getStringExtra("born");*/
+        // Get the result of born
+        Born = intent.getStringExtra("born");
         // Get the result of id
         Id = intent.getStringExtra("id");
         // Get the result of desc1
         Desc1 = intent.getStringExtra("desc1");
         // Get the result of desc2
         Desc2 = intent.getStringExtra("desc2");
+        // Get the result of picture
+        Picture = intent.getStringExtra("picture");
 
-        // Locate the TextViews in singleitemview.xml
+        // Locate the TextViews and ImageView in singleitemview.xml
         TextView txtName = (TextView) findViewById(R.id.user_name);
-        /*TextView txtBorn = (TextView) findViewById(R.id.user_born);*/
+        TextView txtBorn = (TextView) findViewById(R.id.user_born);
         TextView txtId = (TextView) findViewById(R.id.user_id);
         TextView txtDesc1 = (TextView) findViewById(R.id.user_desc1);
         TextView txtDesc2 = (TextView) findViewById(R.id.user_desc2);
+        ImageView imgPicture = (ImageView) findViewById(R.id.profile_image);
+
+        //Convert The String Picture to Resource Res existed in the drawable folder
+        String picture = intent.getStringExtra("picture");
+        int Res = this.getResources().getIdentifier(picture, "drawable" , this.getPackageName());
 
         // Set results to the TextViews
         txtName.setText(Name);
-        /*txtBorn.setText(Born);*/
+        txtBorn.setText(Born);
         txtId.setText(Id);
         txtDesc1.setText(Desc1);
         txtDesc2.setText(Desc2);
+        imgPicture.setImageResource(Res);
 
     }
 

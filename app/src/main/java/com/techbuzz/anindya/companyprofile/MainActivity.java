@@ -50,9 +50,7 @@ public class MainActivity extends AppCompatActivity {
     ListView list;
     String friendsJSON;
     ArrayList<Category> arraylist;
-    JsonParsingHelper parser = new JsonParsingHelper();
-
-    Context context;
+    JsonParsingHelper parser = new JsonParsingHelper(this);  //To pass the context by .this to the reference class
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,14 +112,16 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, SingleItemView.class);
                 // Pass all data name
                 intent.putExtra("name", arraylist.get(arg2).getName());
-                /*// Pass all data born
-                intent.putExtra("born", arraylist.get(arg2).getBorn());*/
+                // Pass all data born
+                intent.putExtra("born", arraylist.get(arg2).getBorn());
                 // Pass all data id
                 intent.putExtra("id", arraylist.get(arg2).getId());
                 // Pass all data description1
                 intent.putExtra("desc1", arraylist.get(arg2).getDesc1());
                 // Pass all data description2
                 intent.putExtra("desc2", arraylist.get(arg2).getDesc2());
+                // Pass all data picture
+                intent.putExtra("picture", arraylist.get(arg2).getPicture());
 
 
                 // Start SingleItemView Class
@@ -320,7 +320,7 @@ public class MainActivity extends AppCompatActivity {
         protected Void doInBackground(Void... unused) {
 
             try {
-                arraylist = parser.getCities(friendsJSON);
+                arraylist = parser.getBollywood(friendsJSON);
             } catch (Exception e) {
                 // TODO: handle exception
             }
@@ -367,26 +367,19 @@ public class MainActivity extends AppCompatActivity {
 
                 v = l.inflate(R.layout.list_item, arg2, false);
 
-                /*// list-optimisation
-                View rowview = v;
-                if (rowview == null) {
-                    LayoutInflater linf = (LayoutInflater) getApplicationContext()
-                            .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                    rowview = linf.inflate(R.layout.list_item, null);
-                }*/
-
                 mCategory = (TextView) v.findViewById(R.id.user_name);
-               /* mBorn = (TextView) v.findViewById(R.id.user_born);*/
+                mBorn = (TextView) v.findViewById(R.id.user_born);
                 mId = (TextView) v.findViewById(R.id.user_id);
                 mDesc1 = (TextView) v.findViewById(R.id.user_desc1);
                 mDesc2 = (TextView) v.findViewById(R.id.user_desc2);
-                /*mprofileImage = (ImageView) v.findViewById(R.id.profile_image);*/
+                mprofileImage = (ImageView) v.findViewById(R.id.profile_image);
 
                 mCategory.setText(arraylist.get(position).getName());
-                /*mBorn.setText(arraylist.get(position).getBorn());*/
+                mBorn.setText(arraylist.get(position).getBorn());
                 mId.setText(arraylist.get(position).getId());
                 mDesc1.setText(arraylist.get(position).getDesc1());
                 mDesc2.setText(arraylist.get(position).getDesc2());
+                mprofileImage.setImageResource(arraylist.get(position).getRes());
 
                 return v;
 

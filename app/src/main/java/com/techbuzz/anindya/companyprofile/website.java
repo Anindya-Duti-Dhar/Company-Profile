@@ -3,6 +3,9 @@ package com.techbuzz.anindya.companyprofile;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -52,10 +55,58 @@ public class website extends AppCompatActivity {
                 .build();
         mAdMobAdView.loadAd(adRequest);
 
-        //Get webView
-        webView = (WebView)findViewById(R.id.webView_website);
-        startWebView("http://reveriegroup.com/");
+        // Initializing Internet Check
+        if (hasConnection(website.this)){
+            //Get webView
+            webView = (WebView)findViewById(R.id.webView_website);
+            startWebView("http://reveriegroup.com/");
+        }
+        else{
+            showNetDisabledAlertToUser(website.this);
+        }
+    }
 
+    // Internet check method
+    public boolean hasConnection(Context context){
+        ConnectivityManager cm=(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo wifiNetwork=cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        if (wifiNetwork != null && wifiNetwork.isConnected()){
+            return true;
+        }
+        NetworkInfo mobileNetwork=cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+        if (mobileNetwork != null && mobileNetwork.isConnected()){
+            return true;
+        }
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        if (activeNetwork != null && activeNetwork.isConnected()){
+            return true;
+        }
+        return false;
+    }
+
+    // Create Dialog popup for internet checking
+    public void showNetDisabledAlertToUser(final Context context){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+        alertDialogBuilder.setCancelable(false);
+        alertDialogBuilder.setMessage("Would you like to enable it?")
+                .setTitle("No Internet Connection")
+                .setMessage("For getting updates you have to enable your internet connection")
+                .setPositiveButton(" Enable Internet ", new DialogInterface.OnClickListener(){
+                    public void onClick(DialogInterface dialog, int id){
+                        Intent dialogIntent = new Intent(android.provider.Settings.ACTION_SETTINGS);
+                        dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(dialogIntent);
+                    }
+                });
+
+        alertDialogBuilder.setNegativeButton(" Cancel ", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                /*website.this.finish();*/
+                onBackPressedCancel();
+            }
+        });
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
     }
 
     private void startWebView(String url) {
@@ -122,6 +173,14 @@ public class website extends AppCompatActivity {
             overridePendingTransition(R.anim.animation_exit, R.anim.animation_enter);
         }
     }
+
+
+    public void onBackPressedCancel() {
+            super.onBackPressed();
+            // animation for activity exit
+            overridePendingTransition(R.anim.animation_exit, R.anim.animation_enter);
+        }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
