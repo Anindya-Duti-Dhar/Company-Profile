@@ -1,34 +1,19 @@
 <resources>
-    <string name="app_name">Reverie Group</string>
+    <string name="app_name">Reverie Corporation</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Rate Us</string>
-    <string name="navigation_item_1">Home</string>
-    <string name="navigation_item_2">Events</string>
-    <string name="starred_string">Starred</string>
-    <string name="inbox_string">Inbox</string>
-    <string name="sent_mail_string">Sent mail</string>
-    <string name="draft_string">Drafts</string>
-    <string name="subheader">Subheader</string>
-    <string name="trash_string">Trash</string>
-    <string name="all_mail_string">All mails</string>
-    <string name="sub_menu_string">Sub Menu</string>
-    <string name="spam_string">Spams</string>
+
     <string name="closeDrawer">Navigation View</string>
     <string name="openDrawer">Navigation View Closed</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="personal_details">Personal Details</string>
-
+    <string name="personal_details">Feed in Details</string>
     <string name="banner_footer">ca-app-pub-3952381686536210/1901268689</string>
-
-
     <string name="about_title">About Us</string>
     <string name="contact_title">Contact Us</string>
     <string name="playstore_title">Our Play Store</string>
     <string name="website_title">Our Website</string>
-
-    <string name="address"> House: 19 (6 th Floor)\nRoad: 10, Nikunja-2 \nDhaka-1229</string>
+    <string name="address">We are an enterprise mobile app development company set up in 2009 by a bunch of passionate technologists to provide web and mobile consulting for businesses in the Atlanta area. Today, we have grown into a large organization with offices across the US. We have successfully delivered our enterprise mobility solutions to small companies, large organizations and government agencies alike, worldwide.</string>
 
 
 </resources>
